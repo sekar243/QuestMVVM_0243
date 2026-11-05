@@ -1,4 +1,3 @@
-
 package com.example.praktikum8.viewmodel
 
 import androidx.lifecycle.ViewModel
