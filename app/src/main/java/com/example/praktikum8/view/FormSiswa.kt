@@ -3,12 +3,15 @@ package com.example.praktikum8.view
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -57,17 +60,17 @@ fun  FormSiswa(
             modifier = Modifier.padding(isiRuang),
             verticalArrangement = Arrangement.SpaceBetween,
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        ) {
             //edit 3 : value, onValueChange, selected,onClick
             OutlinedTextField(
                 value = txtNama,
                 singleLine = true,
                 shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.width(250.dp).padding(top=20.dp),
+                modifier = Modifier.width(250.dp).padding(top = 20.dp),
                 label = { Text(text = "Nama Lengkap") },
                 onValueChange = {
                     txtNama = it
-                    }
+                }
             )
             HorizontalDivider(
                 modifier = Modifier
@@ -76,7 +79,26 @@ fun  FormSiswa(
                 thickness = dimensionResource(R.dimen.thickness_divider),
                 color = Color.Blue
             )
-
+            Row {
+                pilihanJK.forEach { item ->
+                    Row(
+                        modifier = Modifier.selectable(
+                        selected = txtGender == item,
+                        onClick = {
+                            txtGender = item
+                        }
+                    ),
+                        verticalAlignment = Alignment.CenterVertically) {
+                        RadioButton(
+                            selected = txtGender == item,
+                            onClick = {
+                                txtGender = item
+                            }
+                        )
+                        Text(item)
+                    }
+                }
+            }
         }
     }
-    }
+}
