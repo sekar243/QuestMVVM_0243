@@ -13,6 +13,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
@@ -54,6 +58,13 @@ fun TampilSiswa(
                         Text(text = item.second, fontWeight = FontWeight.Bold, fontSize = 16.sp)
                     }
                     Divider(thickness = dimensionResource(R.dimen.thickness_divider))
+                }
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+                Button(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = onBackButtonClicked
+                ) {
+                    Text(stringResource(R.string.back))
                 }
             }
         }
