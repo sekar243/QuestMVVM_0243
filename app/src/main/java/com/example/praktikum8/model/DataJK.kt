@@ -3,7 +3,7 @@ package com.example.praktikum8.model
 import com.example.praktikum8.R
 
 object DataJK {
-    val JenisJK= listOf(
+    val JenisK= listOf(
         R.string.laki,
         R.string.wanita
     )
